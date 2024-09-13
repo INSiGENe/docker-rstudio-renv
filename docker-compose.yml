@@ -1,0 +1,14 @@
+services:
+  rstudio:
+    build: .
+    ports:
+      - "8787:8787"
+    environment:
+      - PASSWORD=rnaseq_transcriptomics_2@24  # Set a password for RStudio
+    volumes:
+      - ./:/home/rstudio
+      - ./renv:/home/rstudio/renv
+      - ./renv.lock:/home/rstudio/renv.lock
+      - ./results:/home/rstudio/results
+      - ./data:/home/rstudio/data
+      - ./scripts:/home/rstudio/scripts
